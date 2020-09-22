@@ -1,0 +1,141 @@
+//MAIN_STYLE-----------------------------------
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+@import "vars";
+@import "fonts";
+@import "normalize";
+
+//MAIN FONT
+body,
+input,
+button,
+textarea,
+a {
+  font-family: $fontFirst;
+  color: $ColorMain;
+  background: transparent;
+}
+
+//Контейнеры
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+.container {
+  max-width: $maxWidth + $widthPadding;
+  margin: 0 auto;
+  padding: 0px $widthPadding;
+}
+.-container {
+  max-width: 1080px;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
+.title {
+  transform: translateX(-150%);
+  @include adaptiv-font(31, 25);
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  transition: all 0.8s ease 0s;
+  &.active {
+    transform: translateX(0%);
+  }
+}
+.text {
+  color: #74757b;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+}
+.btn {
+  @media (min-width: 604px) {
+    margin: 0px 10px;
+    flex: 0 0 256px;
+  }
+  text-align: center;
+  a {
+    max-width: 256px;
+    border-radius: 24px;
+    width: 100%;
+    display: block;
+    padding: 18px 10px 17px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+    @media (max-width: 604px) {
+      margin: 0px 0px 20px 0px;
+      max-width: 100%;
+    }
+  }
+}
+.install-list {
+  li {
+    padding: 0px 0px 0px 30px;
+    margin: 0px 0px 45px 0px;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: #3b4269;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      top: 10px;
+      left: 0;
+    }
+  }
+}
+.install-link {
+  color: #0da088;
+  font-size: 24px;
+  line-height: 26px;
+  border-bottom: 1.5px solid #0da088;
+  display: inline-block;
+  transition: all 0.6s ease 0s;
+  &:hover {
+    color: #0a806c;
+    border-bottom: 1.5px solid transparent;
+  }
+  @media (max-width: 769px) {
+    border-bottom: none;
+    text-decoration: underline;
+    transition: all 0.2s ease 0s;
+    &:hover {
+      border-bottom: none;
+      text-decoration-color: transparent;
+    }
+  }
+  @media (max-width: 604px) {
+    font-size: 20px;
+  }
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
+}
+.install-subtitle {
+  font-size: 16px;
+  display: inline-block;
+  color: #74757b;
+  span {
+    font-weight: 700;
+  }
+  @media (max-width: 480px) {
+    font-size: 13px;
+  }
+}
+//ALL_STYLE-----------------------------------
+@import "header";
+@import "body";
+@import "footer";

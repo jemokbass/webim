@@ -1,0 +1,19 @@
+//VARS---------------------------------
+//WIDTH CONTAINER
+$maxWidth: 1530;
+$widthPadding: 10px;
+
+//FONT NAME
+$fontFirst: "Ubuntu", sans-serif;
+$fontSecond: "";
+$fontThird: "";
+
+//COLOR
+$ColorMain: #393e6b;
+
+//ADAPTIVE FONT
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 320;
+  font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
